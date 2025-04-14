@@ -7,14 +7,15 @@ import Infor from "./infor";
 import Detail from "./detail";
 import Cart from "./cart";
 import Main from "./main";
-
+import { Provider } from "react-redux";
+import PlantStore from "@/redux/store/plantstore";
 
 export default function Index() {
   return (
-    <Main>
-    </Main>
+    <Provider store={PlantStore}>
+      <Main></Main>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-});
+const styles = StyleSheet.create({});

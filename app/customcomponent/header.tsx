@@ -4,17 +4,19 @@ export default function Header({
   back,
   icon,
   title,
-  onPressCart
+  onPressCart,
+  onBack
 }: {
   back: any;
   icon: any;
   title: any;
-  onPressCart: any
+  onPressCart: any;
+  onBack: any
 }) {
   return (
     <View style={styles.container}>
       {back && (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onBack}>
           <Image source={back}></Image>
         </TouchableOpacity>
       )}

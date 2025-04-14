@@ -1,0 +1,126 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "admin",
+      "username": "admin",
+      "password": "123",
+      "sdt": "01234589"
+    },
+    {
+      "id": "2",
+      "name": "long",
+      "username": "long",
+      "password": "123",
+      "sdt": "01234589"
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "value": "Cây trồng"
+    },
+    {
+      "id": "2",
+      "value": "Phụ kiện"
+    },
+    {
+      "value": "Chậu cây",
+      "id": "ec02"
+    },
+    {
+      "id": "9dec",
+      "value": "Phân bón"
+    }
+  ],
+  "plant": [
+    {
+      "id": "1",
+      "name": "Spider Plant",
+      "image": "https://s3-alpha-sig.figma.com/img/8dc1/c3fd/4c79faa42e885c9a92c6e6b29666fdf3?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FFz6vrg3heJzGqD5T~qU131PwnKSvB4lqg2RYekeI1PInWeoy727oEsEa4j0iYIFeUekAAeUd-Jr~BUR26WnQOjem0DTJ5hnbIGffF1ivFQUfainR7~WHUdafGp7x4DxSPul44D4inhAr8MGCu2REi~yOTB~LBfB2oQqDHuoojfUJZLaOuMzCw57Bwmk5D8vMqC5svJG3oe1ckk0kIJVZTFPn8ZrhrHvRW-qUXKn7SNraVmExHQix147zlNQRLDdBa8EhVvX4mLNvy1WqdpxWsvNJk1vkg4vRPTVkx7eEflHldiKc1NZY7KhOo0jOCTCjHd5kR3EqwajoyblTuGX6A__",
+      "category": 1,
+      "price": 250,
+      "attribute": "Ưa bóng",
+      "origin": "Châu Phi",
+      "size": "Nhỏ",
+      "quantity": 156
+    },
+    {
+      "id": "2",
+      "name": "Song of India",
+      "image": "https://s3-alpha-sig.figma.com/img/28d9/bffb/22f7b1d90b3a956129c0034bc73180a5?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ZTxgBwXTEgxSoa50Re3wBjYTBpONjJX7scxG2~679NKz90pZAi85oE0OxqbFdBwXrfyd-Uq6d8yh8r1PtM7d8HXXe9JIXVf2mxqG9IcIT2P9gJ-Aegi9Xk24JZj9yqfyfweaFA8Fipyzsx-d1MdGEXPmrQcrtn~v~wwmt~RW~GkCkL0CWmRkS~jlX4YwK800efJ88eb7UH620AYQlUvF7zbv1cvmxBqdKcVsdfONVzPbfx39n4LbMx7152V346jB7ZbWqgouy22Du3hF14gnoewiTtD-cUqWJT9wC-XqmPPQVXEeIh41nDiRUsA1UpavZr-VKqa~lbJ6JUZKMJI9rw__",
+      "category": 1,
+      "price": 250,
+      "attribute": "Ưa sáng",
+      "origin": "Ấn Độ",
+      "size": "Nhỏ",
+      "quantity": 156
+    },
+    {
+      "id": "3",
+      "name": "Pink Anthurium  ",
+      "image": "https://s3-alpha-sig.figma.com/img/79db/7216/eefbefecedce13e3099111346323ae5a?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=P1Ym6ydrWUk~2-DJQpvAq5pmnhH830dEnKkBgae4l~F3Zx3bAPf66sDMpn2SIw4hg4sR-Rsp85QMlvpfjLt2g-A3Jwy92rf9B35ksT0gGaCFMfZGZe-b33FFLflDWXNFz0SwrVsFYt7h4RBjRrMosqSvs9Kp4sQxL6zh9C5i2y3KizRxRSlTB~y0-U9b7KWmXxvIlbuemcDclt5SLCbdpQMjhgIboEee5py44qMYxAhGPM7Nau9OLoO2Y-js3k8gt0KPxNFUZiS1WQsY1RzM7k1xkEQomXgNVyVy1l0MOtpKb94fMesbJgyE6UcavKRcl1TouZRuZqgqNV4ppPFrXg__",
+      "category": "1",
+      "price": 250,
+      "attribute": "Ưa bóng",
+      "origin": "Châu Phi",
+      "size": "Nhỏ",
+      "quantity": "156"
+    },
+    {
+      "id": "4",
+      "name": "Black Love Anthurium",
+      "image": "https://s3-alpha-sig.figma.com/img/9535/a104/47ad12d663100e872d9e3244b91407a8?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=NxR9AL910Xm9rGKROJolbq5a5u0QVs9nR71gzp9eD9L5iHmmwmpTk6MI4Q2MF01lBiBUbvwUYGhKAYnh0OfRxWkXSX1ETb57zqSnZSswf~EVgME~6KmIgqIza0fMTfyr699U46F2KmYNeFsVEmTLhPdWp8MkGoFTJIxcDhV~wJeSbDyt173tQwS5TPO83gAxh3l~0zV88JynB8GfbAlpVwu6YK0b4PDpYjicYYDjsBNY7wERQaC9xY2Xv4yTGyofcyk7hgaXYXTcZMOZvKtE~mA2I~-Umv8cvpCadRxenIaYP2VZwbV4ICuQ7-chQa-C785XnqAsiAxHDNdzIgjptQ__",
+      "category": 1,
+      "price": 250,
+      "attribute": "Ưa bóng",
+      "origin": "Châu Phi",
+      "size": "Nhỏ",
+      "quantity": 156
+    },
+    {
+      "id": "5",
+      "name": "Bộ cuốc xẻng mini",
+      "image": "https://s3-alpha-sig.figma.com/img/4f14/d646/b1d93b03d1f0d764d4dbd36776ce167e?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=dUGaZPQXXumq6leZi3rGroR0WAwoF3CxCp0nVyxXkAyDAdUOSJfLgQuR5v3Y~9ZtFB76SrZh07LmQkli5K1yod1b2CGq~jjL12gt6yLkVleOnu7QL~HeupYQg2R9NtekJAyt0dH6jZtEs~QwAlTjqsDuPkmZlQw873p5vKeECiwNeBFNCEry-A2CSJmkZ0XEvaW4yxYj-~8tDNby5myk~vNUT70fzKVz46YAe-lU4qSKSJsad3LeupVfDjeHfi42ST-nPuX-~X4t4nbRX2mjQVYORDrLLXjALkbI-pDxosv0JhuMqDa4lIkr941sO2Yt2a1t~m1By95N6gGrJCWyEA__",
+      "category": 2,
+      "price": 250,
+      "attribute": "",
+      "origin": "Việt Nam",
+      "size": "Nhỏ",
+      "quantity": 200
+    },
+    {
+      "id": "d1b3",
+      "name": "bbbb",
+      "image": "https://s3-alpha-sig.figma.com/img/508d/4a73/1e689a274cf0d0cacd0620a56d43fb5e?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Tv3P1gej~8YtvKhqtLMQKz1DUQ4FNZ2HT1NTEZsDx85SdHeH1uaQC4oa206e5bJlllZWqndSJkuijwrI0Nu-uTiYl9lJQhyrdCvvzLG~LVr5HYWx1vGDL05vri3SNcvVfgvPN99Jya8I0Y5jZAMeFCyxh5kOXU9nXyEZiysfiYFNQhDgl2-T49LXVisZB4fk7dUG7fsY5ekNpqFJleQt3FmR7bV3IaKSbDzgshm~7NIeqm6bRNghj0iOBUJeprmxStjyV3unR8ZSyWOzkdFXBjdyb8tjjtSnVFkR4ouBAdelvnLvrdsPSOGTKY5dPEyS9mYSWwb2epYZeVMXw00EZw__",
+      "category": "2",
+      "price": "500",
+      "attribute": "",
+      "origin": "VN",
+      "size": "Trunh bình",
+      "quantity": "1000"
+    },
+    {
+      "id": "",
+      "name": " ",
+      "image": " ",
+      "category": " ",
+      "price": 0,
+      "attribute": " ",
+      "origin": " ",
+      "size": "",
+      "quantity": 0
+    },
+    {
+      "id": "c75a",
+      "name": " ",
+      "image": " ",
+      "category": " ",
+      "price": 0,
+      "attribute": " ",
+      "origin": " ",
+      "size": "",
+      "quantity": 0
+    }
+  ]
+}

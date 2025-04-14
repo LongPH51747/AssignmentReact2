@@ -1,4 +1,5 @@
 import {
+    Alert,
   FlatList,
   ScrollView,
   StyleSheet,
@@ -6,15 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import SectionView from "./customcomponent/sectionview";
-import ListItem from "./customcomponent/listitem";
 import Header from "./customcomponent/header";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store/plantstore";
 import { useEffect } from "react";
-import { getCategory } from "@/redux/action/categoryaction";
-import { getListPlantAction } from "@/redux/action/plantaction";
-import { Plant } from "@/redux/reducer/plantreducer";
+import { deleteCategoryAction, getCategory } from "@/redux/action/categoryaction";
+import { deletePlantAction, getListPlantAction } from "@/redux/action/plantaction";
+import SectionView from "./customcomponent/sectionview";
+import ListItem from "./customcomponent/listitem";
+import { deletePlant, Plant } from "@/redux/reducer/plantreducer";
 
 type GroupedPlants = {
   [categoryId: string]: Plant[];
@@ -41,10 +42,26 @@ export const selectGroupedPlantsByCategory = (
   return groupedPlants;
 };
 
-export default function Home({ navigation }: { navigation: any }) {
-  const list = useSelector((state: any) => state.plant.listPlant);
+export default function AdminHome({ navigation }: { navigation: any }) {
   const category = useSelector((state: any) => state.category.listCategory);
   const dispatch = useDispatch<AppDispatch>();
+
+  const handleDelete = async (id: any) => {
+    try {
+        console.log("lỗi tại adminScreen1");
+        await dispatch(deletePlantAction(id)) 
+        console.log("lỗi tại adminScreen2");       
+    } catch (error) {
+        console.log("lỗi tại adminScreen",error);
+    }
+  }
+
+  const confirmDelete = (id: any)=>{
+    Alert.alert(`Xóa sản phẩm này`,"Bạn chắc chắn chứ?",[
+        {text: 'NO', style: 'cancel'},
+        {text: "YES", onPress: ()=>{handleDelete(id)}}
+    ])
+  }
 
   const groupedPlants = useSelector(selectGroupedPlantsByCategory);
 
@@ -52,14 +69,17 @@ export default function Home({ navigation }: { navigation: any }) {
     dispatch(getCategory());
     dispatch(getListPlantAction());
   }, [dispatch]);
+
   return (
     <View style={{ backgroundColor: "rgba(255, 255, 255, 1)", height: "100%" }}>
       <Header
-        back={""}
-        icon={require("../img/shopping-cart.png")}
-        onPressCart={() => navigation.navigate("Cart")}
-        title={"Trang chủ"}
-        onBack={() => navigation.goBack()}
+        back={require("../img/plus-square.png")}
+        icon={require("../img/bookmark.png")}
+        onPressCart={() => {
+          navigation.navigate("CategoryManager");
+        }}
+        title={"Welcome Back Sir"}
+        onBack={() => navigation.navigate("AddProductScreen")}
       ></Header>
       <ScrollView>
         <FlatList
@@ -78,16 +98,16 @@ export default function Home({ navigation }: { navigation: any }) {
                   scrollEnabled={false}
                   data={groupedPlants[item.id]}
                   keyExtractor={(item) => item.id}
-                  renderItem={({ item }) => (
+                  renderItem={({ item}) => (
                     <ListItem
                       plant={item}
                       onPress={() => {
                         navigation.navigate("Detail", item);
                       }}
-                      deleteimg={""}
-                      updateimg={""}
-                      onDelete={''}
-                      onUpdate={''}
+                      deleteimg={"xóa"}
+                      updateimg={"edit"}
+                      onDelete={()=>{confirmDelete(item.id)}}
+                      onUpdate={()=>{navigation.navigate("AddProductScreen",item)}}
                     />
                   )}
                   numColumns={2}

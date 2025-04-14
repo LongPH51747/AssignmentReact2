@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Image,
@@ -6,20 +6,49 @@ import {
   StatusBar,
   TextStyle,
   Text,
+  Alert,
 } from "react-native";
 import WrapTextInput from "./customcomponent/wrapinput";
 import Title from "./customcomponent/title";
 import ButtonForm from "./customcomponent/form";
+import { useDispatch, useSelector } from "react-redux";
+import { getListUserAction } from "@/redux/action/useraction";
+import { AppDispatch } from "@/redux/store/plantstore";
 
-const Login = ({navigation}:{navigation: any}) => {
+const Login = ({ navigation }: { navigation: any }) => {
   const [emaiorsdt, setEmaiOrSdt] = useState("");
   const [passowrd, setPassword] = useState("");
+
+  const listUser = useSelector((state: any) => state.user.lstUser);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(getListUserAction());
+  }, [dispatch]);
+
   const color = (color: string): TextStyle => ({
     color: color,
   });
   const size = (size: number): TextStyle => ({
     fontSize: size,
   });
+  const checkLogin = listUser.find(
+   (user: any) => user.username == emaiorsdt && user.password == passowrd
+  );
+  const handleCheckLogin = () => {
+    if (checkLogin && emaiorsdt.trim() == "admin" && passowrd.trim() == "123") {
+      navigation.navigate("AdminHome")
+    }
+    else if (checkLogin) {
+      navigation.navigate("TabBar")
+    }
+    else{
+      Alert.alert("đăng nhập thất bại")
+    }
+  }
+  console.log(checkLogin);
+  
+
   return (
     <View style={styles.container}>
       {/* Hình ảnh nền */}
@@ -35,26 +64,30 @@ const Login = ({navigation}:{navigation: any}) => {
       <Title title={"Chào mừng bạn"} subtitle={"Đăng nhập tài khoản"}></Title>
       <WrapTextInput
         placeholder={"Nhập email hoặc số điện thoại"}
-        onchangeText={setEmaiOrSdt}
+        onchangeText={(text: any) => setEmaiOrSdt(text)}
         value={emaiorsdt}
-        icon={''}
+        icon={""}
       ></WrapTextInput>
       <WrapTextInput
         placeholder={"Nhập password"}
-        onchangeText={setPassword}
+        onchangeText={(text: any) => setPassword(text)}
         value={passowrd}
-        icon={''}
+        icon={""}
       ></WrapTextInput>
-      <View style={[styles.row,styles.wraptext]}>
+      <View style={[styles.row, styles.wraptext]}>
         <View style={styles.row}>
           <Image source={require("../img/ri_checkbox-circle-line.png")}></Image>
-          <Text style={[color("rgba(148, 144, 144, 1)")]}>
-            Nhớ tài khoản
-          </Text>
+          <Text style={[color("rgba(148, 144, 144, 1)")]}>Nhớ tài khoản</Text>
         </View>
-        <Text style={[color('rgba(0, 146, 69, 1)')]}>Forgot Password?</Text>
+        <Text style={[color("rgba(0, 146, 69, 1)")]}>Forgot Password?</Text>
       </View>
-      <ButtonForm onPress={()=>navigation.navigate('TabBar')} onPressRegister={()=>navigation.navigate('Logup')} title={'Đăng nhập'} text={"Bạn không có tài khoản"} subtitle={"Tạo tài khoản"}></ButtonForm>
+      <ButtonForm
+        onPress={()=>{handleCheckLogin()}}
+        onPressRegister={() => navigation.navigate("Logup")}
+        title={"Đăng nhập"}
+        text={"Bạn không có tài khoản"}
+        subtitle={"Tạo tài khoản"}
+      ></ButtonForm>
     </View>
   );
 };
@@ -73,16 +106,16 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: -10, // Để khớp với ảnh
   },
-  row:{
+  row: {
     flexDirection: "row",
-    alignItems: 'center'
+    alignItems: "center",
   },
-  wraptext:{
-    justifyContent: 'space-between',
+  wraptext: {
+    justifyContent: "space-between",
     width: 330,
-    alignSelf: 'center',
-    marginVertical: 15
-  }
+    alignSelf: "center",
+    marginVertical: 15,
+  },
 });
 
 export default Login;
